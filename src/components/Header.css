@@ -1,0 +1,45 @@
+header {
+    background: linear-gradient(to right, #6a11cb, #3a3b3c);
+    color: #ecf0f1; /* Light text color */
+    padding: 1rem 2rem; /* Padding for spacing */
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between elements */
+    align-items: center; /* Center items vertically */
+}
+
+h1 {
+    font-size: 1.8rem; /* Header font size */
+    margin: 0; /* Remove default margin */
+}
+
+nav {
+    display: flex; /* Flexbox for nav links */
+    gap: 1.5rem; /* Spacing between links */
+}
+
+nav a {
+    color: #ecf0f1; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: 500; /* Slightly bolder text */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+nav a:hover {
+    color: #3498db; /* Change color on hover */
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack elements on smaller screens */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    nav {
+        flex-direction: column; /* Stack nav links vertically */
+        gap: 0.5rem; /* Reduce spacing between links */
+    }
+}
+
+.hedspani{
+    color: #f40404;
+}

@@ -1,0 +1,14 @@
+/* ProductList.css */
+
+/* Initial state for the product cards */
+.product-card-animation {
+  opacity: 0; /* Invisible at the start */
+  transform: translateY(50px); /* Shifted downward */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth transition */
+}
+
+/* When the product card becomes visible */
+.product-card-animation.visible {
+  opacity: 1; /* Make the card visible */
+  transform: translateY(0); /* Move it to its original position */
+}
