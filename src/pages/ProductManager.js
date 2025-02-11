@@ -12,7 +12,8 @@ const ProductManager = () => {
     image_url: '',
   });
   const [searchQuery, setSearchQuery] = useState('');  // New state for search query
-
+  const [imageInputType, setImageInputType] = useState('url');
+  
   const fetchProducts = async () => {
     try {
       const response = await fetch('/products');
@@ -29,6 +30,22 @@ const ProductManager = () => {
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleImageInputChange = (e) => {
+    const { name } = e.target;
+    if (imageInputType === 'url') {
+      setFormData({ ...formData, [name]: e.target.value });
+    } else if (imageInputType === 'file') {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+          setFormData({ ...formData, [name]: reader.result });
+        };
+        reader.readAsDataURL(file);
+      }
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -159,7 +176,31 @@ const ProductManager = () => {
               className="p-2 border rounded w-full text-sm"
               required
             />
-            <input
+            <div className="flex items-center gap-3">
+              <label className="flex items-center">
+                <input
+                  type="radio"
+                  name="imageInputType"
+                  value="url"
+                  checked={imageInputType === 'url'}
+                  onChange={() => setImageInputType('url')}
+                />
+                <span className="ml-2 text-sm">URL</span>
+              </label>
+              <label className="flex items-center">
+                <input
+                  type="radio"
+                  name="imageInputType"
+                  value="file"
+                  checked={imageInputType === 'file'}
+                  onChange={() => setImageInputType('file')}
+                />
+                <span className="ml-2 text-sm">File</span>
+              </label>
+            </div>
+            {imageInputType === 'url' ? (
+              <>
+                <input
               type="text"
               name="image_url"
               value={formData.image_url}
@@ -167,6 +208,20 @@ const ProductManager = () => {
               placeholder="Image URL (optional)"
               className="p-2 border rounded w-full text-sm"
             />
+                
+              </>
+            ) : (
+              <>
+                <input
+                  type="file"
+                  name="image_url"
+                  // value={formData.image_url}
+                  onChange={handleImageInputChange}
+                  className="p-2 border rounded w-full text-sm"
+                />
+              </>
+            )}
+            
             <textarea
               name="description"
               value={formData.description}
@@ -177,6 +232,7 @@ const ProductManager = () => {
               required
             />
           </div>
+          
           <button
             type="submit"
             className="bg-blue-600 text-sm text-white px-4 py-2 mt-4 rounded hover:bg-blue-700 w-full"

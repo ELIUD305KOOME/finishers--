@@ -4,14 +4,14 @@ import { faFacebook, faInstagram,  faTiktok,  faWhatsapp, faYoutube } from '@for
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-10">
+    <footer className="bg-gray-800 text-gray-300 py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Footer Content */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-6">
           <div className="md:w-2/3">
             <h3 className="lg:text-xl text-sm font-bold text-white mb-4">About Us</h3>
             <p className="text-xs text-gray-400">
-              At Solomons, we blend expert craftsmanship with advanced technology to bring you unparalleled grooming and skincare services. From precision cuts and fades to cutting-edge laser treatments for facials and other needs, we ensure you look and feel your best.
+              At Solomons-Beauty services, we blend expert craftsmanship with advanced technology to bring you unparalleled grooming and skincare services. From precision cuts and fades to cutting-edge laser treatments for facials and other needs, we ensure you look and feel your best.
             </p>
           </div>
           <div className="md:w-1/3 mt-6 md:mt-0 text-center">
@@ -46,7 +46,7 @@ const Footer = () => {
             <FontAwesomeIcon icon={faWhatsapp} size="1x" 
             className="sm:text-2xl md:text-3xl lg:text-4xl"/>
           </a>
-          <a href="https://www.tiktok.com/@solomonrukaria?is_from_webapp=1&sender_device=pc" className='  text-white hover:text-white'>
+          <a href="https://www.tiktok.com/@solomonrukaria?is_from_webapp=1&sender_device=pc" className='  text-blue-400 hover:text-white'>
            <FontAwesomeIcon icon={faTiktok} size='1x'
             className='sm:text-1xl md:text-3xl lg:text-4xl' />
           </a>

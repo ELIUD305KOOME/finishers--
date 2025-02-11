@@ -15,7 +15,7 @@ import ServiceBookingPage from './pages/ServiceBookingPage';
 import Login from './pages/Login';
 import PrivateRoute from './pages/PrivateRoute';
 import AddBooking from './pages/AddBooking';
-// import NavbarWithBubbles from './pages/Empty';
+
 
 
 
@@ -27,11 +27,11 @@ import AddBooking from './pages/AddBooking';
 
 const App = () => {
     return (
-        // <AuthProvider>
+        
         <Router>
-            {/* <AnnouncementBanner/> */}
+          {/* navbar */}
             <Header />
-            {/* <NavbarWithBubbles/> */}
+            
             <Routes>
 
                 <Route path="/" element={<HomePage />} />
@@ -58,7 +58,7 @@ const App = () => {
             </Routes>
             <Footer />
         </Router>
-        // </AuthProvider>
+       
     );
 };
 

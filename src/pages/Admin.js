@@ -383,7 +383,7 @@ const AdminDashboard = () => {
 
         <div className="text-center mt-4">
           <a
-            href="/logout"
+            href="/"
             className="p-3 text-red-400 hover:bg-gray-700 hover:text-white rounded"
           >
             <i className="bi bi-box-arrow-right text-lg"></i>
@@ -459,6 +459,12 @@ const AdminDashboard = () => {
           >
             <i className="bi bi-plus-circle-fill text-sm"></i>
           </button>
+          {/* <button
+          onClick={() => setCurrentPage('/')}
+          className={`p-2 rounded hover:bg-gray-700 ${currentPage === 'logout' ? 'bg-gray-700' : ''}`}
+          >
+            <i className="bi bi-box-arrow-right text-sm"></i>
+            </button> */}
         </div>
       </div>
     </div>

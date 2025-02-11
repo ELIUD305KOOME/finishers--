@@ -36,12 +36,13 @@ const ServiceList = () => {
   }
 
   // Render error state
-  if (error)
+  if (error) {
     return (
       <div className="flex items-center justify-center h-screen">
         <p className="text-red-500 text-lg font-bold">{error}</p>
       </div>
     );
+  }
 
   // Render services list
   return (
@@ -49,23 +50,34 @@ const ServiceList = () => {
       {/* Black overlay with backdrop blur */}
       <div className="absolute inset-0 bg-black opacity-50 backdrop-blur-sm z-0"></div>
 
-      <h1 className="lg:text-2xl text-sm font-extrabold text-indigo-50 mb-6 z-10 relative">
+      {/* <h1 className="lg:text-2xl text-sm text-shadow-md font-extrabold text-indigo-50 mb-6 z-10 relative">
         Featured Services
-      </h1>
+      </h1> */}
 
-      <div className="grid grid-cols-2 sm:h-full sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 z-10 relative">
+      <div className="grid grid-cols-2 sm:h-full sm:grid-cols-3 h-full md:grid-cols-4 lg:grid-cols-4 gap-4 z-10 relative">
         {services.slice(0, 6).map((service) => (
           <div
             key={service.id}
-            className="relative w-full h-48 rounded-lg rounded-t-none overflow-hidden shadow-lg hover:shadow-2xl  transition-shadow-200 duration-300 "
+            className="relative w-full h-48 lg:h-[40vh]   shadow-lg shadow-black overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 group"
           >
             {/* Image */}
             <Link to={`/services/${service.id}`}>
-              <img
-                src={service.service_img || "https://via.placeholder.com/300"}
-                alt={service.name}
-                className="w-full h-full object-cover"
-              />
+              <div className="w-full h-full relative">
+                {/* Before Image */}
+                <div
+                  className="absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-500"
+                  style={{
+                    backgroundImage: `url(${service.before_service_image || ""})`,
+                  }}
+                ></div>
+                {/* After Image */}
+                <div
+                  className="absolute top-0 left-0 w-full h-full bg-cover bg-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    backgroundImage: `url(${service.after_service_image || ""})`,
+                  }}
+                ></div>
+              </div>
             </Link>
 
             {/* Availability Banner */}
@@ -76,9 +88,7 @@ const ServiceList = () => {
             {/* Content Overlay */}
             <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-green-800 to-transparent p-2">
               <h2 className="text-white text-xs font-semibold truncate">{service.name}</h2>
-              <p className="text-gray-50 text-xs mt-1">
-                Ksh{service.price.toFixed(2)}
-              </p>
+              <p className="text-white text-xs mt-1">Starts -Ksh{service.price.toFixed(2)}</p>
             </div>
 
             {/* Book Now Button */}
@@ -95,7 +105,7 @@ const ServiceList = () => {
       <div className="mt-6 ">
         <Link
           to="/services"
-          className="text-indigo-100 text-xs mb-6 z-10 relative md:text-2xl lg:text-2xl text-md underline hover:text-red-600"
+          className="text-indigo-100 text-xs shadow-md shadow-blue-500 rounded bg-gradient-to-r from-blue-800 mb-6 z-10 relative md:text-2xl lg:text-2xl text-md underline-none hover:text-red-600"
         >
           View All Services
         </Link>

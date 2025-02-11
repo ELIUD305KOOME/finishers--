@@ -14,53 +14,56 @@ const Header = () => {
         </h4>
       </div> */}
 
-      <header className="lg:fixed top-2 left-0 w-full bg-blue-500/50 shadow-lg z-50 p-2 max-w-full mx-auto shadow-sm">
+      <header className="sticky border-b border-gray-200 shadow-lg top-0 left-0 w-full bg-blue-500/50 shadow-lg z-50 p-2 max-w-full mx-auto shadow-sm">
 
         {/* <div className=''><AnnouncementBanner /></div> */}
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center h-16">
             {/* Logo and Name */}
             <Link to="/" className="flex ml-16 items-center">
-              <h1 className="text-xl font-bold text-red-800">
-              <i className="text-4xl bi bi-activity"></i>
-            </h1>
-          </Link>
+              <img
+                src="/business-logo.png"
+                alt="Logo"
+                className="h-11 w-11 mr-2"
+              />
+            </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center mr-20px space-x-8 mr-12">
-            <Link
-              to="/"
-              className={`text-indigo-100 hover:text-yellow-600 pr-4 py-5 transition-all duration-300 ${location.pathname === '/' ? 'bg-indigo-400' : ''} hover:py-5`}
-            >
-              Home
+
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center  mr-20px space-x-8 mr-12">
+              <Link
+                to="/"
+                className={`text-indigo-100 hover:text-yellow-600 pr-4 py-7 transition-all duration-300 ${location.pathname === '/' ? 'bg-indigo-400' : ''} hover:py-5`}
+              >
+                Home
             </Link>
             <Link
               to="/products"
-              className={`text-indigo-100 hover:text-yellow-600 pr-4 py-5 transition-all duration-300 ${location.pathname === '/products' ? 'bg-indigo-400' : ''} hover:py-5`}
+              className={`text-indigo-100 hover:text-yellow-600 pr-4 py-7 transition-all duration-300 ${location.pathname === '/products' ? 'bg-indigo-400' : ''} hover:py-5`}
             >
               Products
             </Link>
             <Link
               to="/services"
-              className={`text-indigo-100 hover:text-yellow-600 pr-4 py-5 transition-all duration-300 ${location.pathname === '/services' ? 'bg-indigo-400' : ''} hover:py-5`}
+              className={`text-indigo-100 hover:text-yellow-600 pr-4 py-7 transition-all duration-300 ${location.pathname === '/services' ? 'bg-indigo-400' : ''} hover:py-5`}
             >
               Services
             </Link>
             <Link
               to="/about"
-              className={`text-indigo-100 hover:text-yellow-600 pr-4 py-5 transition-all duration-300 ${location.pathname === '/about' ? 'bg-indigo-400' : ''} hover:py-5`}
+              className={`text-indigo-100 hover:text-yellow-600 pr-4 py-7 transition-all duration-300 ${location.pathname === '/about' ? 'bg-indigo-400' : ''} hover:py-5`}
             >
               About Us
             </Link>
             <Link
               to="/login"
-              className="bg-orange-600 transform transition duration-300 hover:scale-110 hover:animate-bounce font-bold text-white px-6 py-5  hover:bg-indigo-700 transition-colors"
+              className="bg-orange-600 transform transition duration-300 hover:scale-110 hover:animate-bounce font-bold text-white px-6 py-7  hover:bg-indigo-700 transition-colors"
             >
               Login
             </Link>
             </div>
 
-            {/* Bubbles Effect */}
+            {/* Bubbles Effect
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
               <div className="absolute animate-bubble" style={{ backgroundColor: 'rgba(142, 2, 2, 0.6)', borderRadius: '50%', width: '8px', height: '8px', left: '20%', top: '30%' }}></div>
               <div className="absolute animate-bubble" style={{ backgroundColor: 'rgba(255, 200, 200, 0.6)', borderRadius: '50%', width: '6px', height: '6px', left: '50%', top: '10%' }}></div>
@@ -108,7 +111,7 @@ const Header = () => {
               <div className="absolute animate-bubble" style={{ backgroundColor: 'rgba(255, 240, 210, 0.6)', borderRadius: '50%', width: '8px', height: '8px', left: '10%', top: '45%' }}></div>
               <div className="absolute animate-bubble" style={{ backgroundColor: 'rgba(255, 200, 250, 0.6)', borderRadius: '50%', width: '9px', height: '9px', left: '20%', top: '55%' }}></div>
 
-            </div>
+            </div> */}
 
             {/* Mobile Menu Button */}
             <div className="md:hidden">

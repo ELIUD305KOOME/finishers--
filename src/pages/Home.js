@@ -34,18 +34,18 @@ const HomePage = () => {
       <div className="relative z-10 text-center lg:text-left">
         {/* Heading */}
         <h1 className="text-4xl sm:text-5xl lg:text-6xl tracking-tight font-extrabold text-white sm:text-6xl md:text-7xl flex items-center justify-center lg:justify-start">
-          <img
+          {/* <img
             src="https://scontent.fnbo10-1.fna.fbcdn.net/v/t1.6435-9/135583426_2923445037871744_2962774849601885778_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFz5A0lDmkAPMLJwj8CBG_GdL_ZBrZpbjB0v9kGtmluMBnVRK-zJ1SOUKNWxyIuJu__bzcFpeVE-v17XSBu8gfh&_nc_ohc=a0u1xqlRKAMQ7kNvgESEa8l&_nc_zt=23&_nc_ht=scontent.fnbo10-1.fna&_nc_gid=AOr2CC_ALNUVbajzxDg_UgZ&oh=00_AYAk2uCH0UaBOb8Fxw1jboTG3lhLO2afFWCicg7MI2MThw&oe=6788EB8B"
             alt="Solomons"
             className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] md:w-[120px] md:h-[120px] lg:w-[150px] lg:h-[150px] rounded-full mr-4"
-          />
-          <span className="block text-indigo-100">Solomons</span>
+          /> */}
+          <span className="block text-indigo-100">Solomons -Beauty Services</span>
         </h1>
 
         {/* Subheading */}
         <h2 className="text-sm sm:text-2xl font-semibold text-red-300 mt-4">
           Precision Laser Treatments for Radiant Skin
-          <strong className="block font-bold text-red-500 mt-1">Advanced Skin Care with Lasting Results</strong>
+          <strong className="block font-bold text-red-500 mt-1">advancing Skin Care with Lasting Results</strong>
         </h2>
 
         {/* Call-to-Action Button */}

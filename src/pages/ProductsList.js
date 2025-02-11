@@ -56,7 +56,7 @@ const ProductList = () => {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 z-10 relative">
         {products.slice(0, 6).map((product) => (
-          <div key={product.id} className="relative w-full h-48 rounded-lg rounded-t-none overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 z-10">
+          <div key={product.id} className="relative w-full h-48  shadow-lg shadow-black overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 z-10">
             {/* Image Cover */}
             <Link to={`/products/${product.id}`}>
               <img
@@ -72,7 +72,7 @@ const ProductList = () => {
             </div>
 
             {/* Content Overlay */}
-            <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-green-800 to-transparent p-2">
+            <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-green-600 to-transparent p-2">
               <h2 className="text-blue-700 text-sm font-semibold truncate">{product.name}</h2>
               <p className="text-white text-xs mt-1">Ksh{product.price.toFixed(2)}</p>
             </div>
@@ -91,7 +91,7 @@ const ProductList = () => {
       <div className="mt-6 text-indigo-100 ">
         <Link
           to="/products"
-          className="text-indigo-100 text-xs mb-6 z-10 relative md:text-2xl lg:text-2xl text-md underline hover:text-red-600"
+          className="text-indigo-100 text-xs shadow-md shadow-blue-500 rounded bg-gradient-to-r from-blue-800 mb-6 z-10 relative md:text-2xl lg:text-2xl text-md underline-none hover:text-red-600"
         >
           View All Products
         </Link>
