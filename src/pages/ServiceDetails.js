@@ -13,7 +13,7 @@ const ServiceDetails = () => {
   useEffect(() => {
     const fetchServiceDetails = async () => {
       try {
-        const response = await fetch(`/services/${id}`); // Proxy will handle the base URL
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/services/${id}`); // Proxy will handle the base URL
         if (!response.ok) {
           throw new Error("Failed to fetch service details.");
         }

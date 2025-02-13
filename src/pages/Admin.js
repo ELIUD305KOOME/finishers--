@@ -23,7 +23,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const response = await fetch('/total-clicks'); // Flask endpoint
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/total-clicks`); // Flask endpoint
         const data = await response.json();
         setStats({
           totalProductClicks: data.total_product_clicks || 0,
@@ -166,7 +166,7 @@ const Register = () => {
     setSuccess(false);
 
     try {
-      const response = await fetch('/register', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -280,7 +280,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const response = await fetch('/total-clicks'); // Flask endpoint
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/total-clicks`); // Flask endpoint
         const data = await response.json();
         setStats({
           totalProductClicks: data.total_product_clicks || 0,

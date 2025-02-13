@@ -30,7 +30,7 @@ const ServiceBookingPage = () => {
 
         try {
             // Send the POST request to the Flask API with the serviceId
-            const response = await fetch(`/services/${serviceId}/clicks`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/services/${serviceId}/clicks`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

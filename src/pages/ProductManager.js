@@ -16,7 +16,7 @@ const ProductManager = () => {
   
   const fetchProducts = async () => {
     try {
-      const response = await fetch('/products');
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/products`);
       if (response.ok) {
         const data = await response.json();
         setProducts(data);

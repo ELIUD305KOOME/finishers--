@@ -17,7 +17,7 @@ const ServiceManager = () => {
 
   const fetchServices = async () => {
     try {
-      const response = await fetch('/services');
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/services`);
       if (response.ok) {
         const data = await response.json();
         setServices(data);

@@ -17,7 +17,7 @@ const ProductBookings = () => {
   useEffect(() => {
     const fetchProductBookings = async () => {
       try {
-        const response = await fetch('/products/bookings');
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/products/bookings`);
         if (!response.ok) {
           throw new Error('Failed to fetch product bookings');
         }
@@ -104,7 +104,7 @@ const ProductBookings = () => {
 
   const handleDelete = async (bookingId) => {
     try {
-      const response = await fetch(`/products/bookings/${bookingId}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/products/bookings/${bookingId}`, {
         method: 'DELETE',
       });
 
@@ -124,7 +124,7 @@ const ProductBookings = () => {
 
   const handleUpdateBooking = async (bookingId) => {
     try {
-      const response = await fetch(`/products/bookings/${bookingId}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/products/bookings/${bookingId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

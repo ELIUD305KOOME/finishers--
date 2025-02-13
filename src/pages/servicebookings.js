@@ -17,7 +17,7 @@ const ServiceBookings = () => {
   useEffect(() => {
     const fetchServiceBookings = async () => {
       try {
-        const response = await fetch('/services/bookings');
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/services/bookings`);
         if (!response.ok) {
           throw new Error('Failed to fetch service bookings');
         }
@@ -104,7 +104,7 @@ const ServiceBookings = () => {
 
   const handleDelete = async (bookingId) => {
     try {
-      const response = await fetch(`/services/bookings/${bookingId}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/services/bookings/${bookingId}`, {
         method: 'DELETE',
       });
 
@@ -124,7 +124,7 @@ const ServiceBookings = () => {
 
   const handleUpdateBooking = async (bookingId) => {
     try {
-      const response = await fetch(`/services/bookings/${bookingId}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/services/bookings/${bookingId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -12,7 +12,7 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`/products/${id}`);
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/products/${id}`);
         if (!response.ok) {
           throw new Error("Failed to fetch product details.");
         }

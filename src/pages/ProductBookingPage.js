@@ -30,7 +30,7 @@ const ProductBookingPage = () => {
 
     try {
       // Send POST request to the backend API with productId
-      const response = await fetch(`/products/${productId}/clicks`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/products/${productId}/clicks`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
