@@ -89,10 +89,8 @@ const ProductList = () => {
             >
               {/* Image Cover */}
               <Link to={`/products/${product.id}`}>
-              
-
                 <img
-                  src={`data:image/jpeg;base64,${product.image_url}` || "https://via.placeholder.com/300"}
+                  src={product.image_url || "https://via.placeholder.com/300"}
                   alt={product.name}
                   className="w-full h-full object-cover grayscale-0 hover:grayscale-[100%]"
                 />
