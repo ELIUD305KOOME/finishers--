@@ -57,7 +57,7 @@ const ServiceManager = () => {
     e.preventDefault();
     try {
       const method = editService ? 'PUT' : 'POST';
-      const url = editService ? `${process.env.REACT_APP_API_URL}/services/${editService.id}` : '/services';
+      const url = editService ? `/services/${editService.id}` : '/services';
 
       const response = await fetch(url, {
         method,
