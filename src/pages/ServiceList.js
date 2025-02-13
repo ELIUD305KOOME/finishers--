@@ -50,9 +50,9 @@ const ServiceList = () => {
       {/* Black overlay with backdrop blur */}
       <div className="absolute inset-0 bg-black opacity-50 backdrop-blur-sm z-0"></div>
 
-      {/* <h1 className="lg:text-2xl text-sm text-shadow-md font-extrabold text-indigo-50 mb-6 z-10 relative">
+      <h1 className="lg:text-2xl text-sm text-shadow-md font-extrabold text-indigo-50 mb-6 z-10 relative">
         Featured Services
-      </h1> */}
+      </h1>
 
       <div className="grid grid-cols-2 sm:h-full sm:grid-cols-3 h-full md:grid-cols-4 lg:grid-cols-4 gap-4 z-10 relative">
         {services.slice(0, 6).map((service) => (
@@ -105,7 +105,7 @@ const ServiceList = () => {
       <div className="mt-6 ">
         <Link
           to="/services"
-          className="text-indigo-100 text-xs shadow-md shadow-blue-500 rounded bg-gradient-to-r from-blue-800 mb-6 z-10 relative md:text-2xl lg:text-2xl text-md underline-none hover:text-red-600"
+          className="text-indigo-100 text-xs shadow-md shadow-blue-500 rounded bg-gradient-to-r from-green-800 mb-6 z-10 relative md:text-2xl lg:text-2xl text-md underline-none hover:text-red-600"
         >
           View All Services
         </Link>

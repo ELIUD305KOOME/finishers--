@@ -13,7 +13,6 @@ const ProductDetail = () => {
     const fetchProduct = async () => {
       try {
         const response = await fetch(`/products/${id}`);
-        console.log(response)
         if (!response.ok) {
           throw new Error("Failed to fetch product details.");
         }

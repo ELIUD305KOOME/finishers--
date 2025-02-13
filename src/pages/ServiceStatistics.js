@@ -19,7 +19,7 @@ const ServiceStatistics = () => {
                 setError(error.message);
             }
         };
-
+z
         fetchStatistics();
     }, []);
 

@@ -11,7 +11,6 @@ const ProductList = () => {
     const fetchProducts = async () => {
       try {
         const response = await fetch("/products");
-        console.log(response)
         if (!response.ok) {
           throw new Error("Failed to fetch products.");
         }
@@ -56,7 +55,6 @@ const ProductList = () => {
       </h1>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 z-10 relative">
-        console.log(product)
         {products.slice(0, 6).map((product) => (
           <div key={product.id} className="relative w-full h-48  shadow-lg shadow-black overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 z-10">
             {/* Image Cover */}
@@ -93,7 +91,7 @@ const ProductList = () => {
       <div className="mt-6 text-indigo-100 ">
         <Link
           to="/products"
-          className="text-indigo-100 text-xs shadow-md shadow-blue-500 rounded bg-gradient-to-r from-blue-800 mb-6 z-10 relative md:text-2xl lg:text-2xl text-md underline-none hover:text-red-600"
+          className="text-indigo-100 text-xs shadow-md shadow-blue-500 rounded bg-gradient-to-r from-green-800 mb-6 z-10 relative md:text-2xl lg:text-2xl text-md underline-none hover:text-red-600"
         >
           View All Products
         </Link>
