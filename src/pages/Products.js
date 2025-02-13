@@ -82,14 +82,17 @@ const ProductList = () => {
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:ml-[10%] border-t border-green-700 pt-4 text-center lg:mr-[10%] lg:mt-[25vh] md:grid-cols-4 lg:grid-cols-6 gap-1 z-10 relative">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
+            
             <div
               key={product.id}
               className="relative w-full h-[30vh] rounded-lg  overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 z-10"
             >
               {/* Image Cover */}
               <Link to={`/products/${product.id}`}>
+              
+
                 <img
-                  src={product.image_url || "https://via.placeholder.com/300"}
+                  src={`data:image/jpeg;base64,${product.image_url}` || "https://via.placeholder.com/300"}
                   alt={product.name}
                   className="w-full h-full object-cover grayscale-0 hover:grayscale-[100%]"
                 />

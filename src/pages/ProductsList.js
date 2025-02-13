@@ -11,6 +11,7 @@ const ProductList = () => {
     const fetchProducts = async () => {
       try {
         const response = await fetch("/products");
+        console.log(response)
         if (!response.ok) {
           throw new Error("Failed to fetch products.");
         }
@@ -55,12 +56,13 @@ const ProductList = () => {
       </h1>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 z-10 relative">
+        console.log(product)
         {products.slice(0, 6).map((product) => (
           <div key={product.id} className="relative w-full h-48  shadow-lg shadow-black overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 z-10">
             {/* Image Cover */}
             <Link to={`/products/${product.id}`}>
               <img
-                src={product.image_url || "https://via.placeholder.com/300"}
+                 src={`data:image/jpeg;base64,${product.image_url}` || "https://via.placeholder.com/300"}
                 alt={product.name}
                 className="w-full h-full object-cover"
               />
