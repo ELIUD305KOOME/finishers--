@@ -4,28 +4,28 @@ import LargeScreenContent from './LargeScreenContent';
 const reviews = [
   {
     id: 1,
-    name: 'John Doe',
+    name: 'John kimani',
     review: 'Fantastic service! Highly recommend.',
     rating: 5,
     backgroundImage: 'https://source.boomplaymusic.com/buzzgroup2/M00/3A/E6/rBEeJGL1bkuAYXL3AAIapW6ip3E165.jpg',
   },
   {
     id: 2,
-    name: 'Jane Smith',
+    name: 'Jane yusuf',
     review: 'Loved the atmosphere and professionalism.',
     rating: 4.5,
     backgroundImage: 'https://media6.ppl-media.com/mediafiles/blogs/beauty_112562aa86.jpg',
   },
   {
     id: 3,
-    name: 'Michael Lee',
+    name: 'Michael murithi',
     review: 'Great experience! The results were amazing.',
     rating: 4,
     backgroundImage: 'https://dermavue.com/wp-content/uploads/2023/12/Laser-carbon-peel-2.jpg.webp',
   },
   {
     id: 4,
-    name: 'Alice Brown',
+    name: 'Alice kathambi',
     review: 'Top-notch experience. My hair has never looked better!',
     rating: 5,
     backgroundImage: 'https://tcbnaturals.com/kenya/blog/wp-content/uploads/2019/09/how_to_style_your_new_natural_hair_look.jpg',
