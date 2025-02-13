@@ -52,7 +52,7 @@ const ProductManager = () => {
     e.preventDefault();
     try {
       const method = editProduct ? 'PUT' : 'POST';
-      const url = editProduct ? `/products/${editProduct.id}` : '/products';
+      const url = editProduct ? `${process.env.REACT_APP_API_URL}/products/${editProduct.id}` : '/products';
 
       const response = await fetch(url, {
         method,
@@ -85,7 +85,7 @@ const ProductManager = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
-        const response = await fetch(`/products/${id}`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/products/${id}`, {
           method: 'DELETE',
         });
         if (response.ok) {
