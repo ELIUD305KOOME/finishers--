@@ -10,7 +10,7 @@ const ServiceList = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await fetch("/services");
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/services`);
         if (!response.ok) {
           throw new Error("Failed to fetch services.");
         }
