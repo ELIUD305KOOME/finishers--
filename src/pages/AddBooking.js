@@ -39,7 +39,7 @@ function AddBooking() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const url = bookingType === 'product' ? '/products/bookings' : '/services/bookings';
+    const url = bookingType === 'product' ? `${process.env.REACT_APP_API_URL}/products/bookings` : `${process.env.REACT_APP_API_URL}/services/bookings`;
 
     try {
       const response = await fetch(url, {

@@ -52,7 +52,7 @@ const ProductManager = () => {
     e.preventDefault();
     try {
       const method = editProduct ? 'PUT' : 'POST';
-      const url = editProduct ? `${process.env.REACT_APP_API_URL}/products/${editProduct.id}` : '/products';
+      const url = editProduct ? `${process.env.REACT_APP_API_URL}/products/${editProduct.id}` : `${process.env.REACT_APP_API_URL}/products`;
 
       const response = await fetch(url, {
         method,

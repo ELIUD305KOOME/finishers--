@@ -56,8 +56,8 @@ const ServiceManager = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const method = editService ? 'POST' : 'PUT';
-      const url = editService ? `${process.env.REACT_APP_API_URL}/services/${editService.id}` : '/services';
+      const method = editService ? 'PUT' : 'POST';
+      const url = editService ? `${process.env.REACT_APP_API_URL}/services/${editService.id}` : `${process.env.REACT_APP_API_URL}/services`;
 
       const response = await fetch(url, {
         method,
@@ -68,7 +68,7 @@ const ServiceManager = () => {
       });
 
       if (response.ok) {
-        alert(editService ? 'Service added successfully!' : 'Service updated successfully!');
+        alert(editService ? 'Service updated successfully!' : 'Service added successfully!');
         fetchServices();
         setEditService(null);
         setFormData({
