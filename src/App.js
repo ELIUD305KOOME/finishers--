@@ -1,65 +1,56 @@
-import React from 'react';
-import './App.css';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import HomePage from './pages/Home';
-import ServiceDetails from './pages/ServiceDetails';
-import ProductDetail from './pages/ProductDetail';
-import Services from './pages/Services';
-import Products from './pages/Products';
-import About from './pages/About';
-import AdminDashboard from './pages/Admin';
-import ProductBookingPage from './pages/ProductBookingPage';
-import ServiceBookingPage from './pages/ServiceBookingPage';
-import Login from './pages/Login';
-import PrivateRoute from './pages/PrivateRoute';
-import AddBooking from './pages/AddBooking';
+import './App.css';
 
+// Lazy load pages for better performance
+const HomePage = lazy(() => import('./pages/Home'));
+const ServicesList = lazy(() => import('./pages/service'));
+const BlogPage = lazy(() => import('./pages/BlogPage'));
+const DonatePage = lazy(() => import('./pages/DonatePage'));
+const CustomerSupportPage = lazy(() => import('./pages/CustomerS'));
+const CareersPage = lazy(() => import('./pages/careerpage'));
+const Donations = lazy(() => import('./pages/about-donate'));
+const MentalHealthPage = lazy(() => import('./pages/MentalHealthPage'));
+const CybersecurityPage = lazy(() => import('./pages/CybersecurityPage'));
+const DepiEstatesPage = lazy(() => import('./pages/DepiEstatesPage'));
+const LemcoInsurancePage = lazy(() => import('./pages/LemcoInsurancePage'));
+const PrudentialInsurancePage = lazy(() => import('./pages/PrudentialInsurancePage'));
+const AdminDashboard = lazy(() => import('./pages/admin'));
+const Login = lazy(() => import('./pages/Login'));
 
-
-
-
-
-
-
-// import { AuthProvider } from './context/AuthContext';
+const blogRoutes = [
+  { path: '/blog/customer-support', component: <CustomerSupportPage /> },
+  { path: '/blog/employment-opportunities', component: <CareersPage /> },
+  { path: '/blog/donations-impact', component: <Donations /> },
+  { path: '/blog/mental-health-awareness', component: <MentalHealthPage /> },
+  { path: '/blog/cybersecurity-tips', component: <CybersecurityPage /> },
+  { path: '/blog/depi-estates', component: <DepiEstatesPage /> },
+  { path: '/blog/lemco-insurance', component: <LemcoInsurancePage /> },
+  { path: '/blog/prudential-insurance', component: <PrudentialInsurancePage /> },
+];
 
 const App = () => {
-    return (
-        
-        <Router>
-          {/* navbar */}
-            <Header />
-            
-            <Routes>
-
-                <Route path="/" element={<HomePage />} />
-                <Route path="/services/:id" element={<ServiceDetails />} />
-                <Route path="/products/:id" element={<ProductDetail />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/add-booking" element={<AddBooking />} />
-                <Route
-                    path="/dashboard"
-                    element={
-                        <PrivateRoute>
-                            <AdminDashboard />
-                        </PrivateRoute>
-                    }
-                />
-                <Route path="/products/:productId/book" element={<ProductBookingPage />} />
-                <Route path="/services/:serviceId/book" element={<ServiceBookingPage />} />
-                <Route path="/login" element={<Login />} />
-
-
-
-            </Routes>
-            <Footer />
-        </Router>
-       
-    );
+  return (
+    <Router>
+      <Header />
+      <Suspense fallback={<div className="loading">Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/services" element={<ServicesList />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/donate" element={<DonatePage />} />
+          {blogRoutes.map((route, idx) => (
+            <Route key={idx} path={route.path} element={route.component} />
+          ))}
+          <Route path="/admin/*" element={<AdminDashboard />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </Suspense>
+      <Footer />
+    </Router>
+  );
 };
 
 export default App;

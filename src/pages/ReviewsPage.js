@@ -1,0 +1,64 @@
+// src/pages/ReviewsPage.js
+import React from "react";
+import ReviewCard from "../components/ReviewCard";
+
+const reviewsData = [
+  {
+    name: "wilson Kamwara",
+    review: "The team at emur created an amazing website for our business. It’s fast, user-friendly, and has increased our online presence significantly!",
+    rating: "★★★★☆",
+    backgroundImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn2CZ37LMJS7ZzGvK0Mwsl-fxCOUCNuKcc7Q&s",
+  },
+  {
+    name: "Lali Edison",
+    review: "Their digital marketing strategies are top-notch! We’ve seen a significant increase in leads and conversions since partnering with emur.",
+    rating: "★★★★★",
+    backgroundImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCAy_QlPUxqQMDnbF0oLGlS_cBiAB_0x2xHw&s",
+  },
+  {
+    name: "Anna mutuma",
+    review: "emur provided excellent customer support and tailored solutions for our e-commerce platform. Highly recommend their services!",
+    rating: "★★★★☆",
+    backgroundImage: "data:image/png;base64,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",
+  },
+  {
+    name: "John kilema",
+    review: "The web development team at emur delivered a stunning and highly functional website that exceeded our expectations.",
+    rating: "★★★★☆",
+    backgroundImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmRXac4IIFj3WWg38Jn_R8HBo61f1L433Wsw&s",
+  },
+  {
+    name: "Sarah Wilson",
+    review: "Working with emur was a delightful experience. Their attention to detail and professionalism truly shine through.",
+    rating: "★★★★★",
+    backgroundImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYbZCOI2oTgHowB7yIaPXksf2xj200dlxDPg&s",
+  },
+];
+
+const ReviewsPage = () => {
+  return (
+   
+    <div className="bg-gray-100 p-8">
+  {/* Heading and Description */}
+  <div className="text-right mr-12 mb-12">
+    <h2 className="text-3xl md:text-4xl  font-bold text-gray-900 mb-4">
+      What Our Clients Say
+    </h2>
+    <p className="text-lg  text-gray-600">
+      We are proud to have helped numerous businesses with their digital needs.
+      Here's what they have to say about us.
+    </p>
+  </div>
+
+  {/* Reviews Section */}
+  <div className="flex flex-wrap justify-center gap-8">
+    {reviewsData.map((review, index) => (
+      <ReviewCard key={review.id || index} {...review} />
+    ))}
+  </div>
+</div>
+      
+  );
+};
+
+export default ReviewsPage;

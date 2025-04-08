@@ -9,15 +9,15 @@ const ServiceManager = () => {
     subcategory_name: '',
     description: '',
     price: '',
-    before_service_image: '',
-    after_service_image: '',
+    service_image: '',
+   
   });
   const [searchTerm, setSearchTerm] = useState('');
   const [imageInputType, setImageInputType] = useState('url');
 
   const fetchServices = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/services`);
+      const response = await fetch(`/services`);
       if (response.ok) {
         const data = await response.json();
         setServices(data);
@@ -57,7 +57,7 @@ const ServiceManager = () => {
     e.preventDefault();
     try {
       const method = editService ? 'PUT' : 'POST';
-      const url = editService ? `${process.env.REACT_APP_API_URL}/services/${editService.id}` : `${process.env.REACT_APP_API_URL}/services`;
+      const url = editService ? `/services/${editService.id}` : `/services`;
 
       const response = await fetch(url, {
         method,
@@ -77,8 +77,8 @@ const ServiceManager = () => {
           subcategory_name: '',
           description: '',
           price: '',
-          before_service_image: '',
-          after_service_image: '',
+          service_image: '',
+         
         });
       } else {
         alert('Failed to save service');
@@ -91,7 +91,7 @@ const ServiceManager = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this service?')) {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/services/${id}`, {
+        const response = await fetch(`/services/${id}`, {
           method: 'DELETE',
         });
         if (response.ok) {
@@ -114,10 +114,10 @@ const ServiceManager = () => {
       subcategory_name: service.subcategory_name,
       description: service.description,
       price: service.price,
-      before_service_image: service.before_service_image || '',
-      after_service_image: service.after_service_image || '',
+      service_image: service.service_image || '',
+      
     });
-    setImageInputType(service.before_service_image || service.after_service_image ? 'url' : 'file');
+    setImageInputType(service.service_image  ? 'url' : 'file');
   };
 
   useEffect(() => {
@@ -207,17 +207,9 @@ const ServiceManager = () => {
                 <input
                   type="text"
                   name="before_service_image"
-                  value={formData.before_service_image}
+                  value={formData.service_image}
                   onChange={handleImageInputChange}
                   placeholder="Before Service Image URL"
-                  className="p-2 border rounded w-full text-sm"
-                />
-                <input
-                  type="text"
-                  name="after_service_image"
-                  value={formData.after_service_image}
-                  onChange={handleImageInputChange}
-                  placeholder="After Service Image URL"
                   className="p-2 border rounded w-full text-sm"
                 />
               </>
@@ -225,16 +217,11 @@ const ServiceManager = () => {
               <>
                 <input
                   type="file"
-                  name="before_service_image"
+                  name="service_image"
                   onChange={handleImageInputChange}
                   className="p-2 border rounded w-full text-sm"
                 />
-                <input
-                  type="file"
-                  name="after_service_image"
-                  onChange={handleImageInputChange}
-                  className="p-2 border rounded w-full text-sm"
-                />
+                
               </>
             )}
             <textarea
@@ -265,59 +252,63 @@ const ServiceManager = () => {
               className="p-2 border rounded w-full sm:w-80 text-sm"
             />
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {filteredServices.map((service) => (
-              <div
-                key={service.id}
-                className="relative bg-gray-50 rounded shadow overflow-hidden group"
-              >
-                <div className="w-full h-48 relative">
-                  {/* Before Image */}
-                  <div
-                    className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
-                    style={{
-                      backgroundImage: `url(${service.before_service_image || ''})`,
-                    }}
-                  ></div>
-                  {/* After Image */}
-                  <div
-                    className="absolute top-0 left-0 w-full h-full bg-cover bg-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    style={{
-                      backgroundImage: `url(${service.after_service_image || ''})`,
-                    }}
-                  ></div>
-                </div>
-                <div className="absolute bottom-4 left-4 right-4 bg-gradient-to-t from-black to-transparent p-4 rounded">
-                  <h3 className="text-lg font-bold text-white">{service.name}</h3>
-                  <p className="text-sm text-gray-300">
-                    {service.category_name} / {service.subcategory_name}
-                  </p>
-                  <p className="text-gray-200 mt-2 text-sm line-clamp-3">
-                    {service.description.length > 100
-                      ? `${service.description.substring(0, 100)}...`
-                      : service.description}
-                  </p>
-                  <p className="text-gray-200 font-semibold mt-2">
-                    Ksh {service.price.toFixed(2)}
-                  </p>
-                </div>
-                <div className="absolute top-4 right-4 flex space-x-2">
-                  <button
-                    onClick={() => handleEdit(service)}
-                    className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 text-sm"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(service.id)}
-                    className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 text-sm"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 gap-6">
+  {filteredServices.map((service) => (
+    <div
+      key={service.id}
+      className="flex bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300"
+    >
+      {/* Image Left Side */}
+      <div className="w-1/3 min-w-[150px] relative">
+        <div
+          className="h-full bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${service.service_image || ''})`,
+          }}
+        >
+          <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition duration-300"></div>
+        </div>
+      </div>
+
+      {/* Content Right Side */}
+      <div className="w-2/3 p-4 flex flex-col justify-between">
+        <div>
+          <h3 className="text-xl font-bold text-gray-800">{service.name}</h3>
+          <p className="text-sm text-gray-500 mt-1">
+            {service.category_name} / {service.subcategory_name}
+          </p>
+          <p className="text-gray-600 mt-2 text-sm line-clamp-3">
+            {service.description.length > 100
+              ? `${service.description.substring(0, 100)}...`
+              : service.description}
+          </p>
+        </div>
+
+        <div className="flex justify-between items-center mt-4">
+          <p className="text-lg font-semibold text-green-600">
+            Ksh {service.price.toFixed(2)}
+          </p>
+
+          <div className="flex space-x-2">
+            <button
+              onClick={() => handleEdit(service)}
+              className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded text-sm transition"
+            >
+              ✏️ Edit
+            </button>
+            <button
+              onClick={() => handleDelete(service.id)}
+              className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm transition"
+            >
+              🗑️ Delete
+            </button>
           </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
         </div>
       </div>
     </div>
@@ -325,5 +316,3 @@ const ServiceManager = () => {
 };
 
 export default ServiceManager;
-
-
