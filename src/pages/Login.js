@@ -107,7 +107,7 @@ const StyledWrapper = styled.div`
   .container {
     max-width: 400px;
     background: linear-gradient(0deg, #fff 0%, #f4f7fb 100%);
-    border-radius: 20px;
+    
     padding: 30px;
     box-shadow: rgba(133, 189, 215, 0.88) 0px 20px 30px -10px;
   }

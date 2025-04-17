@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 left-0 right-0 w-full 
-                   bg-gradient-to-b dark:from-gray-900/60 dark:via-gray-700/40 dark:to-transparent 
+                   bg-gradient-to-b from-cyan-100 to-transparent
                    backdrop-blur-lg shadow-md z-50 
                    px-4 py-3 lg:px-8 lg:py-4">
       {/* Header content goes here */}
@@ -20,8 +20,8 @@ const Header = () => {
 
         {/* Logo and Brand Name */}
         <Link to="/" className="flex items-center text-blue-900 font-extrabold text-2xl tracking-wide hover:text-blue-700 transition-colors duration-300">
-          <img src="/business-logo.jpg" alt="Logo" className="h-16 w-16 object-cover rounded-full border-2 border-blue-300 shadow-sm mr-3" />
-          emur
+          <img src="/business-logo.jpg" alt="Logo" className="h-16 w-16 object-cover   shadow-sm mr-3" />
+          
         </Link>
 
         {/* Centered Desktop Navigation */}

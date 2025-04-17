@@ -39,7 +39,7 @@ const HomePage = () => {
                 support, or resolving issues, our team is here to ensure your
                 satisfaction.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              {/* <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="#services"
                   className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-md shadow transition duration-300"
@@ -52,7 +52,7 @@ const HomePage = () => {
                 >
                   Contact Us Today
                 </a>
-              </div>
+              </div> */}
             </div>
 
             {/* Big Logo Text (CSA) */}
