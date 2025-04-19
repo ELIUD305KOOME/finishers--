@@ -70,7 +70,7 @@ const Reviews = () => {
           return (
             <div
               key={review.id}
-              className={`absolute w-full h-full p-4 rounded-md shadow-md transform transition-transform duration-700 ease-in-out ${isActive ? 'z-20 scale-105' : 'z-10 scale-90'}`}
+              className={`absolute w-full h-full p-4 rounded-none shadow-md transform transition-transform duration-700 ease-in-out ${isActive ? 'z-20 scale-105' : 'z-10 scale-90'}`}
               style={{
                 transform: `rotateY(${angle}deg) translateZ(${getTranslateZ()}px)`,
                 backgroundImage: `url(${review.backgroundImage})`,
@@ -79,7 +79,7 @@ const Reviews = () => {
               }}
               onClick={() => handleReviewClick(index)}
             >
-              <div className="text-center bg-white/70 p-4 rounded-md">
+              <div className="text-center bg-white/70 p-4 rounded-none">
                 <h3 className="text-sm font-semibold text-orange-800 sm:text-base lg:text-lg">
                   {review.name}
                 </h3>

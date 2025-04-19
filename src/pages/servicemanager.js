@@ -17,7 +17,7 @@ const ServiceManager = () => {
 
   const fetchServices = async () => {
     try {
-      const response = await fetch(`/services`);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/services`);
       if (response.ok) {
         const data = await response.json();
         setServices(data);
@@ -57,7 +57,7 @@ const ServiceManager = () => {
     e.preventDefault();
     try {
       const method = editService ? 'PUT' : 'POST';
-      const url = editService ? `/services/${editService.id}` : `/services`;
+      const url = editService ? `${process.env.REACT_APP_API_URL}/services/${editService.id}` : `${process.env.REACT_APP_API_URL}/services`;
 
       const response = await fetch(url, {
         method,
@@ -91,7 +91,7 @@ const ServiceManager = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this service?')) {
       try {
-        const response = await fetch(`/services/${id}`, {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/services/${id}`, {
           method: 'DELETE',
         });
         if (response.ok) {

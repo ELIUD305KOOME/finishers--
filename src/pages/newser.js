@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Card, CardContent } from "@/components/ui/card";
 
 const countries = [
   { code: 'us', name: 'USA' },
@@ -21,7 +20,7 @@ const Newser = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://newsapi.org/v2/top-headlines`,
+        'https://newsapi.org/v2/top-headlines',
         {
           params: {
             category: 'technology',
@@ -44,48 +43,55 @@ const Newser = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
-      <h1 className="text-3xl font-bold mb-6 text-center">🌍 Trending Tech News by Country</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">
+        🌍 Trending Tech News
+      </h1>
 
-      <div className="flex justify-center gap-4 mb-6 flex-wrap">
+      {/* <div className="flex justify-center gap-4 mb-6 flex-wrap">
         {countries.map((c) => (
           <button
             key={c.code}
             className={`px-4 py-2 rounded-lg text-white transition ${
-              country === c.code ? 'bg-blue-600' : 'bg-blue-400 hover:bg-blue-500'
+              country === c.code
+                ? 'bg-blue-600'
+                : 'bg-blue-400 hover:bg-blue-500'
             }`}
             onClick={() => setCountry(c.code)}
           >
             {c.name}
           </button>
         ))}
-      </div>
+      </div> */}
 
       {loading ? (
         <p className="text-center text-xl">Loading news...</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {news.map((article, idx) => (
-            <Card key={idx} className="shadow-md rounded-2xl overflow-hidden">
+            <div
+              key={idx}
+              className="bg-white shadow-md rounded-2xl overflow-hidden flex flex-col"
+            >
               <img
                 src={article.urlToImage || 'https://via.placeholder.com/400x200'}
                 alt={article.title}
                 className="w-full h-48 object-cover"
               />
-              <CardContent className="p-4">
+              <div className="p-4 flex flex-col flex-1">
                 <h2 className="font-semibold text-lg mb-2">{article.title}</h2>
-                <p className="text-sm text-gray-600 mb-2">
+                <p className="text-sm text-gray-600 mb-2 flex-1">
                   {article.description?.slice(0, 100)}...
                 </p>
                 <a
                   href={article.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline text-sm"
+                  className="text-blue-600 hover:underline text-sm mt-auto"
                 >
                   Read more
                 </a>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
         </div>
       )}

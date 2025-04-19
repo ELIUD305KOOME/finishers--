@@ -51,7 +51,7 @@ function AdminRegister() {
 
       try {
         const response = await fetch(
-          "http://127.0.0.1:5000/mechanic_auth/register",
+          `${process.env.REACT_APP_API_URL}/mechanic_auth/register`,
           {
             method: "POST",
             body: formData,

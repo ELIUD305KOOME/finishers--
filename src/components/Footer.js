@@ -1,13 +1,14 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faTiktok, faWhatsapp, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import ChatBot  from '../pages/ChatBot'
 
 const Footer = () => {
   return (
     <footer class="bg-cyan-100 text-gray-700 py-10">
       <div class="container mx-auto px-4 md:px-0">
         <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
-
+        <ChatBot/>            
           {/* <!-- Column 1: About CSA --> */}
           <div class="w-full md:w-1/4">
             <h3 class="text-lg font-bold mb-4">About emur</h3>
@@ -59,6 +60,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+          
 
           {/* <!-- Column 4: Contact CSA --> */}
           <div class="w-full md:w-1/4">

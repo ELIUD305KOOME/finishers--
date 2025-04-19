@@ -6,7 +6,7 @@ const MechanicsDashboard = () => {
   const [formData, setFormData] = useState({});
 
   const fetchMechanics = async () => {
-    const res = await fetch('/mechanics');
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/mechanics`);
     const data = await res.json();
     setMechanics(data);
   };
@@ -17,7 +17,7 @@ const MechanicsDashboard = () => {
 
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this mechanic?')) return;
-    await fetch(`/mechanics/${id}`, { method: 'DELETE' });
+    await fetch(`${process.env.REACT_APP_API_URL}/mechanics/${id}`, { method: 'DELETE' });
     fetchMechanics();
   };
 
@@ -42,7 +42,7 @@ const MechanicsDashboard = () => {
       form.append(key, formData[key]);
     }
 
-    await fetch(`/mechanics/${id}`, {
+    await fetch(`${process.env.REACT_APP_API_URL}/mechanics/${id}`, {
       method: 'PATCH',
       body: form
     });

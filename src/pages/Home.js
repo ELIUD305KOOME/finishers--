@@ -7,6 +7,7 @@ import Card from './eliudcard';
 import ServiceList from './service';
 import SimpleHeaderWithIcons from './smarter'
 import Newser from './newser'
+// import TechStackLogos from './TechStackLogos';
 
 const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -21,13 +22,14 @@ const HomePage = () => {
         backgroundRepeat: "no-repeat",
         backgroundAttachment: 'fixed',
       }}
-    >
+    > 
       {/* Overlay for entire background */}
       <div className="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
-
+     
       {/* Hero Section */}
       <section className="relative flex items-center justify-center py-20 md:py-32 px-4 z-10">
       <div className="w-full max-w-4xl mx-auto text-center">
+      {/* <TechStackLogos /> */}
   {/* Wrapper for the emur background text */}
   <div className="relative h-32 mb-10 md:h-40">
     <div
@@ -45,7 +47,7 @@ const HomePage = () => {
       emur
     </div>
   </div>
-
+  
   {/* Search input */}
   <div className="flex justify-center">
     <input
@@ -53,62 +55,63 @@ const HomePage = () => {
       placeholder="Search for services..."
       value={searchQuery}
       onChange={(e) => setSearchQuery(e.target.value)}
-      className="w-full max-w-2xl px-6 py-4 rounded-full bg-white shadow-lg border border-gray-200 focus:outline-none text-gray-800 text-lg transition-all"
-    />
-  </div>
-  <SimpleHeaderWithIcons/>
-</div>
+              className="w-full max-w-2xl px-6 py-4 rounded-full bg-white shadow-lg border border-gray-200 focus:outline-none text-gray-800 text-lg transition-all"
+            />
+          </div>
+          <SimpleHeaderWithIcons />
+
+        </div>
 
       </section>
 
       {/* Main Content Area */}
       <div className="relative z-10 mx-auto mt-4 bg-transparent bg-opacity-90 rounded-t-3xl shadow-xl p-6 w-full lg:w-4/5">
-      <ul className="flex space-x-8 mb-4 text-3xl">
-  <li>
-    <a
-      href="#"
-      className="text-[#1877F2] hover:text-blue-600 transition duration-300" // Facebook blue
-    >
-      <FontAwesomeIcon icon={faFacebook} />
-    </a>
-  </li>
-  <li>
-    <a
-      href="#"
-      className="text-[#E1306C] hover:text-pink-500 transition duration-300" // Instagram pink
-    >
-      <FontAwesomeIcon icon={faInstagram} />
-    </a>
-  </li>
-  <li>
-    <a
-      href="#"
-      className="text-black hover:text-gray-700 transition duration-300" // TikTok black
-    >
-      <FontAwesomeIcon icon={faTiktok} />
-    </a>
-  </li>
-  <li>
-    <a
-      href="#"
-      className="text-[#25D366] hover:text-green-500 transition duration-300" // WhatsApp green
-    >
-      <FontAwesomeIcon icon={faWhatsapp} />
-    </a>
-  </li>
-  <li>
-    <a
-      href="#"
-      className="text-[#FF0000] hover:text-red-500 transition duration-300" // YouTube red
-    >
-      <FontAwesomeIcon icon={faYoutube} />
-    </a>
-  </li>
-</ul>
+        <ul className="flex space-x-8 mb-4 text-3xl">
+          <li>
+            <a
+              href="#"
+              className="text-[#1877F2] hover:text-blue-600 transition duration-300" // Facebook blue
+            >
+              <FontAwesomeIcon icon={faFacebook} />
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              className="text-[#E1306C] hover:text-pink-500 transition duration-300" // Instagram pink
+            >
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              className="text-black hover:text-gray-700 transition duration-300" // TikTok black
+            >
+              <FontAwesomeIcon icon={faTiktok} />
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              className="text-[#25D366] hover:text-green-500 transition duration-300" // WhatsApp green
+            >
+              <FontAwesomeIcon icon={faWhatsapp} />
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              className="text-[#FF0000] hover:text-red-500 transition duration-300" // YouTube red
+            >
+              <FontAwesomeIcon icon={faYoutube} />
+            </a>
+          </li>
+        </ul>
 
         <ServiceList searchQuery={searchQuery} />
         <Card />
-        <Newser/>
+        <Newser />
         <ReviewsPage />
         <Map />
       </div>
