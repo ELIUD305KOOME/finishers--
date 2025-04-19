@@ -42,12 +42,11 @@ const ServiceList = () => {
     );
 
   return (
-    <div className="bg-gray-100 min-h-screen py-10 px-4">
+    <div className="bg-cyan-300  rounded-b-none rounded-xl py-4 px-2">
       <h1 className="text-3xl font-bold text-center text-blue-600 mb-10">
-        Our Services
       </h1>
 
-      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
         {services.map((service) => (
           <ServiceCard key={service.id} service={service} />
         ))}
@@ -62,37 +61,35 @@ const ServiceCard = ({ service }) => {
     "https://via.placeholder.com/400x200?text=Service+Image";
 
   return (
-    <div className="relative flex w-full max-w-sm flex-col rounded-none bg-white text-gray-700 shadow-md mx-auto transition-transform transform hover:scale-105">
+
+    
+    <div className="relative flex w-full max-w-sm flex-col rounded-none bg-blue-100 text-gray-700 shadow-md  border-2 border-rose-200">
       {/* Gradient Header with Background Image */}
+     
       <div
-        className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg"
+        className="relative mx-4 -mt-6 h-40 overflow-hidden  bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg"
         style={{
           backgroundImage: `url(${imageUrl})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       ></div>
-
+       
       {/* Content */}
       <div className="p-6">
-        <h5 className="mb-2 text-xl font-semibold text-blue-gray-900">
+        <h5 className="mb-2 text-xl font-semibold text-pink-900">
           {service.name}
         </h5>
-        <p className="text-base font-light text-gray-600">
+        <p className="text-base font-light text-cyan-600">
           {service.description?.slice(0, 100) || "Premium service at your convenience..."}
         </p>
+        <p className="text-lg font-semibold text-green-600">
+           From  Ksh {service.price.toFixed(2)}
+          </p>
       </div>
 
-      {/* Read More Button */}
-      <div className="p-6 pt-0">
-        <Link
-          to={`/services/${service.id}`}
-          className="inline-block select-none rounded-lg bg-blue-500 py-3 px-6 text-center text-xs font-bold uppercase text-white shadow-md transition-all hover:shadow-lg hover:bg-blue-600 focus:outline-none"
-        >
-          Read More
-        </Link>
-      </div>
     </div>
+    
   );
 };
 

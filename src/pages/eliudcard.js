@@ -1,29 +1,35 @@
 import React from 'react';
 
 const Card = () => {
+  const services = ['Support', 'Tech', 'Sales', 'Billing'];
+
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-center gap-10 p-6 min-h-screen bg-gradient-to-br from-gray-100 to-gray-200">
-      {/* Skewed Main Card */}
-      <div className="transform -skewY(-20deg)">
-        <div
-          className="relative flex justify-center items-center h-[300px] w-[160px] border-4 border-black rounded-2xl bg-gray-50"
-          style={{
-            boxShadow: '5px 5px 2.5px 6px rgb(209, 218, 218)',
-          }}
-        >
-          {/* Top Black Strip */}
-          <span className="absolute top-0 border border-black bg-black w-20 h-2 rounded-br-xl rounded-bl-xl" />
+    <div className="flex items-center justify-center px-4 py-10 md:py-20 bg-cyan-200">
+      <div className="relative bg-white rounded-2xl shadow-xl border-4 border-black max-w-3xl w-full p-8">
+        {/* Top Black Strip */}
+        <span className="absolute top-0 left-1/2 transform -translate-x-1/2 border border-black bg-black w-20 h-2 rounded-br-xl rounded-bl-xl" />
 
-          {/* Right-Side Extensions */}
-          <span className="absolute -right-2 top-14 border-4 border-black h-7 w-3 rounded-md" />
-          <span className="absolute -right-2 bottom-36 border-4 border-black h-10 w-3 rounded-md" />
+        {/* Right-Side Extensions */}
+        <span className="absolute -right-2 top-14 border-4 border-black h-7 w-3 rounded-md" />
+        <span className="absolute -right-2 bottom-36 border-4 border-black h-10 w-3 rounded-md" />
 
-          {/* Inner 3D Mini Cards */}
-          <div className="grid grid-cols-2 gap-2 p-2">
-            <MiniServiceCard title="Web" />
-            <MiniServiceCard title="App" />
-            <MiniServiceCard title="Design" />
-            <MiniServiceCard title="SEO" />
+        {/* Content */}
+        <div>
+          <h1 className="text-3xl md:text-5xl font-bold text-rose-800 leading-tight mb-4">
+            Your Partner in Exceptional Customer Service
+          </h1>
+          <p className="text-base md:text-lg text-gray-600 mb-6">
+            At <span className="font-semibold text-blue-700">emur</span>, we specialize in delivering top-notch customer service
+            assistance. Whether you need help with inquiries, technical
+            support, or resolving issues, our team is here to ensure your
+            satisfaction.
+          </p>
+
+          {/* Inner Mini Cards */}
+          <div className="grid grid-cols-2 gap-4">
+            {services.map((item, i) => (
+              <MiniServiceCard key={i} title={item} />
+            ))}
           </div>
         </div>
       </div>
@@ -34,13 +40,9 @@ const Card = () => {
 const MiniServiceCard = ({ title }) => {
   return (
     <div
-      className="flex items-center justify-center h-14 w-14 bg-white border border-gray-300 rounded-lg shadow-lg transform hover:-rotate-x-6 hover:rotate-y-6 transition-transform duration-300"
-      style={{
-        perspective: '600px',
-        boxShadow: '2px 4px 10px rgba(0,0,0,0.15)',
-      }}
+      className="flex items-center justify-center h-14 w-full bg-white border border-gray-300 rounded-lg shadow-md"
     >
-      <span className="text-sm font-semibold text-gray-700">{title}</span>
+      <span className="text-sm font-medium text-cyan-700">{title}</span>
     </div>
   );
 };

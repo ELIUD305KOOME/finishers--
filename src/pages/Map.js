@@ -60,8 +60,8 @@ const Map = () => {
       <div className="absolute inset-0 bg-black opacity-50 backdrop-blur-sm z-0"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <h2 className="lg:text-3xl text-xl font-bold text-white relative mb-6">Contact Us</h2>
-        <p className="lg:text-base text-sm text-gray-300 relative mb-8">
+        <h2 className="lg:text-3xl text-xl font-bold text-cyan-100 relative mb-6">Contact Us</h2>
+        <p className="lg:text-base text-sm text-cyan-300 relative mb-8">
           We'd love to hear from you! Use the form below to send us a message via email or WhatsApp.
         </p>
 
@@ -190,18 +190,18 @@ const Map = () => {
       </div>
 
       {/* Logo Overlay */}
-<div
+{/* <div
   className="absolute top-4 right-4 w-24 h-24 rounded-full flex items-center justify-center shadow-lg bg-cover bg-center"
   style={{
-    backgroundImage: "url('/ceo-eliud.jpg')", // Background image for the overlay
-    backgroundSize: "cover", // Ensures the image covers the entire container
-    backgroundPosition: "center", // Centers the image within the container
-    border: "2px solid rgba(255, 255, 255, 0.5)", // Adds a semi-transparent border for contrast
-    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)" // Subtle shadow for depth
+    // backgroundImage: "url('/ceo-eliud.jpg')",
+    // backgroundSize: "cover", 
+    // backgroundPosition: "center",
+    // border: "2px solid rgba(255, 255, 255, 0.5)",
+    // boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)"
   }}
 >
   <p className="text-2xl font-bold text-indigo-600 text-shadow">emur</p>
-</div>
+</div> */}
     </div>
   );
 };

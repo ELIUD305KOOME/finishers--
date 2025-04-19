@@ -13,8 +13,7 @@ const ManageUsers = () => (
 );
 
 const Settings = () => (
-  <div className="p-6 bg-white rounded-lg shadow-md">
-    <h2 className="text-xl font-bold mb-4">Settings</h2>
+  <div className="p-6 bg-cyan-100  shadow-md">
     <ServiceManager />
   </div>
 );

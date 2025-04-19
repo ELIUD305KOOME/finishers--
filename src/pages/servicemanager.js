@@ -132,7 +132,7 @@ const ServiceManager = () => {
   );
 
   return (
-    <div className="w-full mx-auto p-4 bg-gray-100 rounded-lg h-auto sm:h-[85vh] flex flex-col">
+    <div className="w-full mx-auto p-4 bg-cyan-100 rounded-lg h-auto sm:h-[85vh] flex flex-col">
       <h1 className="text-sm font-bold text-gray-800 mb-4">Service Manager</h1>
 
       <div className="flex flex-col sm:flex-row gap-6">
@@ -241,7 +241,7 @@ const ServiceManager = () => {
             {editService ? 'Update Service' : 'Add Service'}
           </button>
         </form>
-        <div className="flex-1 bg-gray-100 p-4 rounded overflow-y-auto max-h-[70vh] sm:max-h-[60vh]">
+        <div className="flex-1 bg-cyan-100 p-4 rounded overflow-y-auto max-h-[70vh] sm:max-h-[60vh]">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Service List</h2>
           <div className="mb-4 w-full">
             <input
@@ -256,7 +256,7 @@ const ServiceManager = () => {
   {filteredServices.map((service) => (
     <div
       key={service.id}
-      className="flex bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300"
+      className="flex bg-cyan-200  shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300"
     >
       {/* Image Left Side */}
       <div className="w-1/3 min-w-[150px] relative">

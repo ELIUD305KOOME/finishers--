@@ -7,7 +7,8 @@ export default {
         '1000': '1000px',
       },
       animation: {
-        bubble: 'bubble 3s ease-in-out infinite', // Add bubble animation
+        bubble: 'bubble 3s ease-in-out infinite',
+        svg: 'svgAnimation 2.5s linear infinite', // 👈 Add this line
       },
       keyframes: {
         bubble: {
@@ -24,6 +25,13 @@ export default {
             opacity: '0.8',
           },
         },
+        svgAnimation: { // 👈 Add this block
+          from: { strokeDashoffset: '0' },
+          to: { strokeDashoffset: '1000' },
+        },
+      },
+      strokeWidth: {
+        '1': '3px', // Optional: helps with stroke-1 utility
       },
     },
   },

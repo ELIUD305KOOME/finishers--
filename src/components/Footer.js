@@ -4,7 +4,7 @@ import { faFacebook, faInstagram, faTiktok, faWhatsapp, faYoutube } from '@forta
 
 const Footer = () => {
   return (
-    <footer class="bg-white text-gray-800 py-10">
+    <footer class="bg-cyan-100 text-gray-700 py-10">
       <div class="container mx-auto px-4 md:px-0">
         <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
 
@@ -17,7 +17,7 @@ const Footer = () => {
           </div>
 
           {/* <!-- Column 2: Quick Links --> */}
-          <div class="w-full md:w-1/4">
+          {/* <div class="w-full md:w-1/4">
             <h3 class="text-lg font-bold mb-4">Quick Links</h3>
             <ul class="space-y-2">
               <li><a href="#services" class="hover:text-indigo-500 transition duration-300">Services</a></li>
@@ -26,7 +26,7 @@ const Footer = () => {
               <li><a href="#contact" class="hover:text-indigo-500 transition duration-300">Contact emur</a></li>
               <li><a href="#donate" class="hover:text-indigo-500 transition duration-300">Donate</a></li>
             </ul>
-          </div>
+          </div> */}
 
           {/* <!-- Column 3: Social Media --> */}
           <div class="w-full md:w-1/4">
