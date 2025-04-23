@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 
 const countries = [
   { code: 'us', name: 'USA' },
@@ -19,19 +18,11 @@ const Newser = () => {
   const fetchNews = async (countryCode) => {
     setLoading(true);
     try {
-      const response = await axios.get(
-        'https://newsapi.org/v2/top-headlines',
-        {
-          params: {
-            category: 'technology',
-            country: countryCode,
-            apiKey: process.env.NEWS_API_KEY, // Replace with your actual API key
-          },
-        }
-      );
-      setNews(response.data.articles);
-    } catch (error) {
-      console.error("Error fetching news:", error);
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/news?country=${countryCode}`);
+      const data = await res.json();
+      setNews(data.articles || []);
+    } catch (err) {
+      console.error('Error fetching news:', err);
     } finally {
       setLoading(false);
     }
@@ -47,21 +38,17 @@ const Newser = () => {
         🌍 Trending Tech News
       </h1>
 
-      {/* <div className="flex justify-center gap-4 mb-6 flex-wrap">
-        {countries.map((c) => (
-          <button
-            key={c.code}
-            className={`px-4 py-2 rounded-lg text-white transition ${
-              country === c.code
-                ? 'bg-blue-600'
-                : 'bg-blue-400 hover:bg-blue-500'
-            }`}
-            onClick={() => setCountry(c.code)}
-          >
-            {c.name}
-          </button>
-        ))}
-      </div> */}
+      <div className="mb-6 text-center">
+        <select
+          value={country}
+          onChange={(e) => setCountry(e.target.value)}
+          className="p-2 rounded border"
+        >
+          {countries.map(({ code, name }) => (
+            <option key={code} value={code}>{name}</option>
+          ))}
+        </select>
+      </div>
 
       {loading ? (
         <p className="text-center text-xl">Loading news...</p>
