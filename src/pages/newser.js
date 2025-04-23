@@ -25,7 +25,7 @@ const Newser = () => {
           params: {
             category: 'technology',
             country: countryCode,
-            apiKey: 'fda9cd8ff5e0471a8ea88f897f352b7f', // Replace with your actual API key
+            apiKey: process.env.NEWS_API_KEY, // Replace with your actual API key
           },
         }
       );
