@@ -1,54 +1,32 @@
 import React, { useEffect, useState } from 'react';
 
-const countries = [
-  { code: 'us', name: 'USA' },
-  { code: 'gb', name: 'UK' },
-  { code: 'de', name: 'Germany' },
-  { code: 'jp', name: 'Japan' },
-  { code: 'in', name: 'India' },
-  { code: 'fr', name: 'France' },
-  { code: 'cn', name: 'China' },
-];
-
 const Newser = () => {
   const [news, setNews] = useState([]);
-  const [country, setCountry] = useState('us');
   const [loading, setLoading] = useState(false);
 
-  const fetchNews = async (countryCode) => {
+  const fetchNews = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/news?country=${countryCode}`);
-      const data = await res.json();
-      setNews(data.articles || []);
-    } catch (err) {
-      console.error('Error fetching news:', err);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/news`);
+      if (!response.ok) throw new Error('Failed to fetch');
+      const data = await response.json();
+      setNews(data.articles);
+    } catch (error) {
+      console.error('Error fetching news:', error);
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchNews(country);
-  }, [country]);
+    fetchNews();
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <h1 className="text-3xl font-bold mb-6 text-center">
         🌍 Trending Tech News
       </h1>
-
-      <div className="mb-6 text-center">
-        <select
-          value={country}
-          onChange={(e) => setCountry(e.target.value)}
-          className="p-2 rounded border"
-        >
-          {countries.map(({ code, name }) => (
-            <option key={code} value={code}>{name}</option>
-          ))}
-        </select>
-      </div>
 
       {loading ? (
         <p className="text-center text-xl">Loading news...</p>
