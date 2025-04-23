@@ -26,15 +26,15 @@ const ChatBot = () => {
 
   return (
     <div className="max-w-md mx-auto mt-0 p-4 bg-gray-200 shadow-md rounded-none">
-      <h2 className="text-2xl font-bold mb-4">💬 Tech Assistant</h2>
+      <h2 className="text-sm font-bold mb-4">💬 Tech Assistant</h2>
       <div className="h-64 overflow-y-auto  border p-3 mb-4 space-y-2">
         {messages.map((msg, idx) => (
           <div
             key={idx}
             className={`p-2 rounded-md ${
               msg.sender === 'user'
-                ? 'bg-blue-100 self-end text-right'
-                : 'bg-gray-100 text-left'
+                ? 'bg-blue-100 self-end text-xs text-right'
+                : 'bg-gray-100 text-xs text-left'
             }`}
           >
             {msg.text}
@@ -51,7 +51,7 @@ const ChatBot = () => {
           onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
         />
         <button
-          className="bg-blue-500 text-white px-4 py-2 rounded"
+          className="bg-blue-500 text-xs text-white px-3 py-2 rounded"
           onClick={sendMessage}
         >
           Send

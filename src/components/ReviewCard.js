@@ -9,9 +9,9 @@ const ReviewCard = ({ name, review, rating, backgroundImage }) => {
     >
       {/* Front Face */}
       <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 rounded-none backface-hidden">
-        <h2 className="text-2xl font-bold text-white">{name}</h2>
+        <h2 className="text-sm font-bold text-white">{name}</h2>
         <p className="text-xl text-yellow-500">{rating}</p>
-        <p className="text-white text-center">{review}</p>
+        <p className="text-white text-xs text-center">{review}</p>
       </div>
 
       {/* Back Face

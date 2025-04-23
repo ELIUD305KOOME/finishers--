@@ -31,7 +31,7 @@ const HomePage = () => {
       <div className="w-full max-w-4xl mx-auto text-center">
       {/* <TechStackLogos /> */}
   {/* Wrapper for the emur background text */}
-  <div className="relative h-32 mb-10 md:h-40">
+  <div className="relative h-20 mb-10 md:h-40">
     <div
       className="absolute inset-0 flex items-center justify-center"
       style={{

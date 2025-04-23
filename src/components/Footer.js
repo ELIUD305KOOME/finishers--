@@ -11,8 +11,8 @@ const Footer = () => {
         <ChatBot/>            
           {/* <!-- Column 1: About CSA --> */}
           <div class="w-full md:w-1/4">
-            <h3 class="text-lg font-bold mb-4">About emur</h3>
-            <p class="text-sm leading-relaxed">
+            <h3 class="text-xs font-bold mb-4">About emur</h3>
+            <p class="text-xs leading-relaxed">
               At emur, we offer a wide range of services tailored to meet your needs. Whether you're looking for assistance, and inq our services, employment opportunities, or simply want to support our work through donations, we're here to help.
             </p>
           </div>
@@ -31,31 +31,31 @@ const Footer = () => {
 
           {/* <!-- Column 3: Social Media --> */}
           <div class="w-full md:w-1/4">
-            <h3 class="text-lg font-bold mb-4">Follow emur</h3>
+            <h3 class="text-xs font-bold mb-4">Follow emur</h3>
             <ul class="flex space-x-4">
               <li>
                 <a href="#" class="text-indigo-500 hover:text-indigo-600 transition duration-300">
-                  <FontAwesomeIcon icon={faFacebook} size="lg" />
+                  <FontAwesomeIcon icon={faFacebook} size="sm" />
                 </a>
               </li>
               <li>
                 <a href="#" class="text-indigo-500 hover:text-indigo-600 transition duration-300">
-                  <FontAwesomeIcon icon={faInstagram} size="lg" />
+                  <FontAwesomeIcon icon={faInstagram} size="sm" />
                 </a>
               </li>
               <li>
                 <a href="#" class="text-indigo-500 hover:text-indigo-600 transition duration-300">
-                  <FontAwesomeIcon icon={faTiktok} size="lg" />
+                  <FontAwesomeIcon icon={faTiktok} size="sm" />
                 </a>
               </li>
               <li>
                 <a href="#" class="text-indigo-500 hover:text-indigo-600 transition duration-300">
-                  <FontAwesomeIcon icon={faWhatsapp} size="lg" />
+                  <FontAwesomeIcon icon={faWhatsapp} size="sm" />
                 </a>
               </li>
               <li>
                 <a href="#" class="text-indigo-500 hover:text-indigo-600 transition duration-300">
-                  <FontAwesomeIcon icon={faYoutube} size="lg" />
+                  <FontAwesomeIcon icon={faYoutube} size="sm" />
                 </a>
               </li>
             </ul>
@@ -64,7 +64,7 @@ const Footer = () => {
 
           {/* <!-- Column 4: Contact CSA --> */}
           <div class="w-full md:w-1/4">
-            <h3 class="text-lg font-bold mb-4">Contact emur</h3>
+            <h3 class="text-xs font-bold mb-4">Contact emur</h3>
             <ul class="space-y-2">
               <li><a href="mailto:info@csa.com" class="hover:text-indigo-500 transition duration-300">Email: info@emur.com</a></li>
               <li><a href="tel:+1234567890" class="hover:text-indigo-500 transition duration-300">Phone: +254 792 182 559</a></li>
@@ -74,7 +74,7 @@ const Footer = () => {
 
         {/* <!-- Copyright --> */}
         <div class="mt-10 border-t border-gray-300 pt-4 text-center">
-          <p class="text-sm">&copy; 2023 emur. All rights reserved.</p>
+          <p class="text-xs">&copy; 2023 emur. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -15,10 +15,10 @@ const Card = () => {
 
         {/* Content */}
         <div>
-          <h1 className="text-3xl md:text-5xl font-bold text-rose-800 leading-tight mb-4">
+          <h1 className="text-sm md:text-5xl font-bold text-rose-800 leading-tight mb-4">
             Your Partner in Exceptional Customer Service
           </h1>
-          <p className="text-base md:text-lg text-gray-600 mb-6">
+          <p className="text-xs md:text-lg text-gray-600 mb-6">
             At <span className="font-semibold text-blue-700">emur</span>, we specialize in delivering top-notch customer service
             assistance. Whether you need help with inquiries, technical
             support, or resolving issues, our team is here to ensure your
