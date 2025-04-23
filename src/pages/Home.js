@@ -55,7 +55,7 @@ const HomePage = () => {
       placeholder="Search for services..."
       value={searchQuery}
       onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full max-w-2xl px-6 py-4 rounded-full bg-white shadow-lg border border-gray-200 focus:outline-none text-gray-800 text-lg transition-all"
+              className="w-full sm:h-12 max-w-2xl px-6 py-4 rounded-full bg-white shadow-lg border border-gray-200 focus:outline-none text-gray-800 text-lg transition-all"
             />
           </div>
           <SimpleHeaderWithIcons />
