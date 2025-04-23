@@ -78,14 +78,14 @@ const ServiceCard = ({ service }) => {
       ></div>
 
       <div className="p-6">
-        <h5 className="mb-2 text-xl font-semibold text-pink-900">
+        <h5 className="mb-2 text-sm font-semibold text-pink-900">
           {service.name}
         </h5>
-        <p className="text-base font-light text-cyan-600">
-          {service.description?.slice(0, 100) ||
+        <p className="text-xs font-light text-cyan-600">
+          {service.description?.slice(0, 150) ||
             "Premium service at your convenience..."}
         </p>
-        <p className="text-lg font-semibold text-green-600">
+        <p className="text-sm font-semibold text-green-600">
           From Ksh {service.price.toFixed(2)}
         </p>
       </div>

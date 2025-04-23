@@ -36,7 +36,7 @@ const HomePage = () => {
       className="absolute inset-0 flex items-center justify-center"
       style={{
         WebkitTextStroke: "1px #fff",
-        fontSize: "8rem",
+        fontSize: "6rem",
         fontFamily: "'Roboto', sans-serif",
         fontWeight: "bold",
         color: "rgba(255, 255, 255, 0.1)",
