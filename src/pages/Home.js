@@ -48,16 +48,17 @@ const HomePage = () => {
     </div>
   </div>
   
-  {/* Search input */}
-  <div className="flex justify-center">
-    <input
-      type="text"
-      placeholder="Search for services..."
-      value={searchQuery}
-      onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full sm:h-7 max-w-2xl px-6 py-4 rounded-full bg-white shadow-lg border border-gray-200 focus:outline-none text-gray-800 text-lg transition-all"
+          {/* Search input */}
+          <div className="flex justify-center px-2">
+            <input
+              type="text"
+              placeholder="Search for services..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full max-w-2xl sm:max-w-xl md:max-w-lg px-4 sm:px-5 py-2 sm:py-3 rounded-none sm:rounded-full bg-white shadow-lg border border-gray-200 focus:outline-none text-gray-800 text-base sm:text-lg transition-all"
             />
           </div>
+
           <SimpleHeaderWithIcons />
 
         </div>
