@@ -37,7 +37,7 @@ const Newser = () => {
             iframe.removeAttribute('data-src');
           }
         },
-        { threshold: 0.5 }
+        { threshold: 0.1 }
       );
 
       observer.observe(iframe);
@@ -83,10 +83,10 @@ const Newser = () => {
                 />
               )}
               <div className="p-4 flex flex-col flex-1">
-                <h2 className="font-semibold text-lg mb-2">{article.title}</h2>
-                <p className="text-sm text-gray-600 mb-2 flex-1">
+                <h2 className="font-semibold text-xs mb-2">{article.title}</h2>
+                {/* <p className="text-xs text-gray-600 mb-2 flex-1">
                   {article.description?.slice(0, 100)}...
-                </p>
+                </p> */}
                 <a
                   href={article.url}
                   target="_blank"
