@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 const Newser = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(false);
-  const videoRefs = useRef([]);
+  const iframeRefs = useRef([]);
 
   const fetchNews = async () => {
     setLoading(true);
@@ -23,30 +23,31 @@ const Newser = () => {
     fetchNews();
   }, []);
 
-  // Auto-play videos when visible
+  // Optional: Lazy load YouTube iframes when in view (for performance)
   useEffect(() => {
     const observers = [];
 
-    videoRefs.current.forEach((video) => {
-      if (!video) return;
+    iframeRefs.current.forEach((iframe) => {
+      if (!iframe) return;
 
       const observer = new IntersectionObserver(
         ([entry]) => {
-          if (entry.isIntersecting) {
-            video.play().catch(() => {});
-          } else {
-            video.pause();
+          if (entry.isIntersecting && iframe.dataset.src) {
+            iframe.src = iframe.dataset.src; // Lazy-load YouTube video
+            iframe.removeAttribute('data-src');
           }
         },
         { threshold: 0.5 }
       );
 
-      observer.observe(video);
+      observer.observe(iframe);
       observers.push(observer);
     });
 
     return () => observers.forEach((obs) => obs.disconnect());
   }, [news]);
+
+  const isYouTubeUrl = (url) => url?.includes('youtube.com') || url?.includes('youtu.be');
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
@@ -61,14 +62,26 @@ const Newser = () => {
               key={idx}
               className="bg-white shadow-md rounded-2xl overflow-hidden flex flex-col"
             >
-              <video
-                ref={(el) => (videoRefs.current[idx] = el)}
-                src={article.videoUrl || 'https://www.w3schools.com/html/mov_bbb.mp4'}
-                className="w-full h-48 object-cover"
-                muted
-                controls
-                playsInline
-              />
+              {isYouTubeUrl(article.videoUrl) ? (
+                <iframe
+                  ref={(el) => (iframeRefs.current[idx] = el)}
+                  data-src={convertToEmbedUrl(article.videoUrl)}
+                  className="w-full h-48"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title={`YouTube video for ${article.title}`}
+                />
+              ) : (
+                <video
+                  ref={(el) => (iframeRefs.current[idx] = el)}
+                  src={article.videoUrl || 'https://www.w3schools.com/html/mov_bbb.mp4'}
+                  className="w-full h-48 object-cover"
+                  muted
+                  controls
+                  playsInline
+                />
+              )}
               <div className="p-4 flex flex-col flex-1">
                 <h2 className="font-semibold text-lg mb-2">{article.title}</h2>
                 <p className="text-sm text-gray-600 mb-2 flex-1">
@@ -89,6 +102,19 @@ const Newser = () => {
       )}
     </div>
   );
+};
+
+// Convert YouTube URLs to embeddable format
+const convertToEmbedUrl = (url) => {
+  if (url.includes('youtu.be')) {
+    const id = url.split('/').pop();
+    return `https://www.youtube.com/embed/${id}?autoplay=1&mute=1`;
+  }
+  if (url.includes('youtube.com/watch')) {
+    const id = new URL(url).searchParams.get('v');
+    return `https://www.youtube.com/embed/${id}?autoplay=1&mute=1`;
+  }
+  return url;
 };
 
 export default Newser;
